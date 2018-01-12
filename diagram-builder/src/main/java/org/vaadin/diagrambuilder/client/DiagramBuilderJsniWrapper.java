@@ -13,6 +13,7 @@ public class DiagramBuilderJsniWrapper extends JavaScriptObject {
 
 	public static native void create(JavaScriptObject conf, int id, DiagramBuilderWidget widget)
 	/*-{
+	  var diagramBuilder;
 	  $wnd.YUI().use(
 	    'aui-diagram-builder',
 	    function(Y) {
@@ -45,7 +46,7 @@ public class DiagramBuilderJsniWrapper extends JavaScriptObject {
 	        
 	      var trs = conf.transitions;
 	
-	      var diagramBuilder = new Y.DiagramBuilder(conf).render();
+	      diagramBuilder = new Y.DiagramBuilder(conf).render();
 	      
 	      diagramBuilder.connectAll(trs);
 	      
@@ -54,6 +55,10 @@ public class DiagramBuilderJsniWrapper extends JavaScriptObject {
 	    }
 	  );
 	 }-*/;
+
+	public final native void clearFields() /*-{
+												diagramBuilder.clearFields();
+											}-*/;
 
 	public final native JavaScriptObject toJSON() /*-{
 													return this.toJSON();

@@ -43,6 +43,10 @@ public class DiagramBuilderWidget extends Widget {
 		}
 	}
 
+	void clearFields() {
+		wrapper.clearFields();
+	}
+
 	void setConf(JavaScriptObject conf) {
 		DiagramBuilderJsniWrapper.create(conf, id, this);
 	}
